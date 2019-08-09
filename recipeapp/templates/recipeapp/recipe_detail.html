@@ -1,0 +1,14 @@
+{% extends 'recipeapp/index.html' %}
+
+
+{% block content %}
+    <div>
+        <h2>{{ recipe.title }}</h2>
+        <h3>
+                {{ recipe.author }}
+        </h3>
+        <p>{{ recipe.description }}</p>
+        <p>{{ recipe.time_required }} hours</p>
+        <p>{{ recipe.instructions }}</p>
+    </div>
+{% endblock content %}

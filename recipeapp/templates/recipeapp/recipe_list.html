@@ -1,0 +1,10 @@
+{% extends 'recipeapp/index.html' %}
+{% block content %}
+    {% for recipe in recipes %}
+        <div>
+            <h2>
+                <a href="{% url 'recipe_detail' pk=recipe.pk %}">{{ recipe.title }}</a>
+            </h2>
+        </div>
+    {% endfor %}
+{% endblock content %}
