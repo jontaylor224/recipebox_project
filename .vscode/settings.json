@@ -1,6 +1,0 @@
-{
-    "python.pythonPath": "/Users/jonathantaylor/.local/share/virtualenvs/recipebox_project-uZHJiou9/bin/python",
-    "python.linting.pylintEnabled": false,
-    "python.linting.pep8Enabled": true,
-    "python.linting.enabled": true
-}
