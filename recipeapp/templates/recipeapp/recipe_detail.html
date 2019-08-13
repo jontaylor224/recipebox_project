@@ -5,7 +5,10 @@
     <div>
         <h2>{{ recipe.title }}</h2>
         <h3>
+                <a href="{% url 'author_detail' pk=recipe.author_id %}">
+
                 {{ recipe.author }}
+                </a>
         </h3>
         <p>{{ recipe.description }}</p>
         <p>{{ recipe.time_required }} hours</p>
