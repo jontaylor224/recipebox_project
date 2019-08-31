@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Recipe, Author
-from .forms import AuthorForm, RecipeForm
+from .forms import AuthorForm, RecipeForm, UserForm
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -23,19 +24,21 @@ def author_detail(request, pk):
 
 def add_author(request):
     if request.method == "POST":
-        form = AuthorForm(request.POST)
-        if form.is_valid():
+        user_form = UserForm(request.POST, instance=request.user)
+        author_form = AuthorForm(request.POST, instance=request.user.author)
+        if user_form.is_valid() and author_form.is_valid():
             # breakpoint()
-            author = form.save(commit=False)
-            author.name = form.cleaned_data['name']
-            author.bio = form.cleaned_data['bio']
-            author.save()
+            author = author_form.save(commit=False)
+            user_form.save()
+            author_form.save()
             return redirect('author_detail', pk=author.pk)
     else:
-        form = AuthorForm()
-    return render(request, 'recipeapp/add_author.html', {'form': form})
+        user_form = UserForm(instance=request.user)
+        author_form = AuthorForm(instance=request.user.author)
+    return render(request, 'recipeapp/add_author.html',
+                  {'user_form': user_form, 'author_form': author_form})
 
-
+@login_required
 def add_recipe(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST)

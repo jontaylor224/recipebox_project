@@ -17,12 +17,14 @@
         <title>Recipebox</title>
     </head>
     <body>
-        <div>
+        <div class='header'>
             <h1>
                 <a href="/">RecipeBox</a>
             </h1>
-            <a href="{% url 'add_author' %}">Add author</a><br>
-            <a href="{% url 'add_recipe' %}">Add recipe</a>
+            <div class='buttons'>
+                <a href="{% url 'add_author' %}">Add author</a><br>
+                <a href="{% url 'add_recipe' %}">Add recipe</a>
+            </div>
             <hr />
         </div>
 

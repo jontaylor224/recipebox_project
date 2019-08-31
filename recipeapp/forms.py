@@ -1,18 +1,18 @@
 from django import forms
 from .models import Recipe, Author
+from django.contrib.auth.models import User
+
+
+class UserForm(forms.ModelForm):
+    class Meta():
+        model = User
+        fields = ('username', )
 
 
 class AuthorForm(forms.ModelForm):
     class Meta():
         model = Author
-        fields = ('name', 'bio')
-
-
-# class RecipeForm(forms.ModelForm):
-#     class Meta():
-#         model = Recipe
-#         fields = ('title', 'author', 'description',
-#                   'time_required', 'instructions')
+        fields = ('bio', )
 
 
 class RecipeForm(forms.Form):
