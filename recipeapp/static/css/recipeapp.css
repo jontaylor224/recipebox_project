@@ -5,17 +5,10 @@ body {
 
 h1 a {
     color: royalblue;
-    /* background-color: dodgerblue; */
-    /* border: 2px solid dodgerblue; */
-    /* border-radius: 10px; */
 }
 
 h2 a {
     color: royalblue;
-}
-
-body {
-    padding-left: 20px;
 }
 
 hr {
@@ -23,5 +16,27 @@ hr {
 }
 
 .header {
-    background-color: rgb(255, 255, 159)
+    background-color: rgb(255, 255, 159);
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.content_block {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.form_block {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_block h3 {
+    text-align: center;
+}
+
+.form {
+    text-align: left;
 }

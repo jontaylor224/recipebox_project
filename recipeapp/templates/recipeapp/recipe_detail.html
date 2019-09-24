@@ -1,17 +1,14 @@
-{% extends 'recipeapp/index.html' %}
-
-
-{% block content %}
-    <div>
-        <h2>{{ recipe.title }}</h2>
-        <h3>
-                <a href="{% url 'author_detail' pk=recipe.author_id %}">
-
-                {{ recipe.author }}
-                </a>
-        </h3>
-        <p>{{ recipe.description }}</p>
-        <p>{{ recipe.time_required }} hours</p>
-        <p>{{ recipe.instructions }}</p>
-    </div>
+{% extends 'recipeapp/index.html' %} {% block content %}
+<div>
+    <h3>{{ recipe.title }}</h3>
+    <h4>
+        Recipe Author:
+        <a href="{% url 'author_detail' pk=recipe.author_id  %}">
+            {{ recipe.author }}
+        </a>
+    </h4>
+    <p>Description: {{ recipe.description }}</p>
+    <p>Cooking time: {{ recipe.time_required }} minutes</p>
+    <p>Instructions: {{ recipe.instructions }}</p>
+</div>
 {% endblock content %}
