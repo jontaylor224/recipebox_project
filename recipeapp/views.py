@@ -26,9 +26,10 @@ def author_detail(request, pk):
                   {'author': author, 'recipes': recipes})
 
 
+@login_required
 def add_author(request):
     if not request.user.is_staff:
-        return HTTPResponseRedirect('/')
+        return HttpResponseRedirect('/')
     else:
         if request.method == "POST":
             author_form = AuthorForm(request.POST)
