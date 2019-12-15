@@ -90,5 +90,30 @@ def add_recipe(request):
     return render(request, 'recipeapp/add_recipe.html', {'form': form})
 
 
+def sign_up(request):
+    if request.method == 'POST':
+        form = AuthorForm(request.POST)
+        if form.is_valid():
+            author_data = form.cleaned_data
+            password1 = author_data.get("password1")
+            password2 = author_data.get("password2")
+
+            if (password1 == password2):
+                new_user = User.objects.create_user(
+                    username=author_data.get("username"),
+                    password=password2,
+                )
+                author = Author.objects.create(
+                    user=new_user,
+                    bio=author_data.get("bio")
+                )
+                return redirect('author_detail', pk=author.pk)
+    else:
+        form = AuthorForm()
+    return render(request, 'recipeapp/sign_up.html',
+                  {'form': form})
+
+
 def logout_view(request):
     logout(request)
+    return HttpResponseRedirect('/')

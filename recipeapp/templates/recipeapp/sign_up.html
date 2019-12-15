@@ -1,0 +1,15 @@
+{% extends 'recipeapp/index.html' %}
+
+
+{% block content %}
+<div class="form_block">
+    <h3>Create New Author</h3>
+    <div class="form">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

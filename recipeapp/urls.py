@@ -11,6 +11,7 @@ urlpatterns = [
     path('author/<int:pk>/', views.author_detail, name='author_detail'),
     path('addauthor/', views.add_author, name='add_author'),
     path('addrecipe/', views.add_recipe, name='add_recipe'),
+    path('sign_up/', views.sign_up, name='sign_up'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout')
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
